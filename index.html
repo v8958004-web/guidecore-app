@@ -395,7 +395,8 @@
     document.getElementById("r-total").textContent = money(total);
     document.getElementById("r-risk").textContent = money(risk);
     document.getElementById("r-share").textContent =
-      "Комплект стоит " + PRICE + " ₽ — это " + (PRICE/risk*100).toFixed(1) + "% от суммы, которой вы рискуете.";
+      "Комплект стоит " + money(PRICE) + " — это " + (PRICE/risk*100).toFixed(1) +
+      "% от суммы, которой вы рискуете.";
   }
   document.getElementById("seg").addEventListener("click", function(e){
     var b = e.target.closest("[data-cls]"); if (!b) return;
