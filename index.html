@@ -8,175 +8,142 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@500;700&display=swap">
 <style>
   :root{
-    --paper:#FFFFFF;
-    --ground:#EFEDE8;
-    --sunk:#F6F4F0;
-    --ink:#15181B;
-    --ink-mid:#5C646D;
-    --ink-faint:#8C939B;
-    --rule:#DFDBD2;
-    --brass:#9A6A14;
-    --brass-ink:#FFFFFF;
-    --brass-soft:#F5E8CE;
-    --tech:#2D5B7D;
-    --ok:#2C6B44;
-    --ok-soft:#DEEDE4;
-    --danger:#A3391F;
-    --danger-soft:#F7E2DC;
-    --radius:12px;
+    --paper:#FFFFFF; --ground:#EEECE7; --sunk:#F7F5F1;
+    --ink:#14171A; --ink-mid:#59616A; --ink-faint:#8A9199;
+    --rule:#DEDAD1;
+    --brass:#94661A; --brass-ink:#FFFFFF; --brass-soft:#F6E9D0;
+    --tech:#2B587A; --tech-soft:#E2ECF3;
+    --ok:#2A6742; --ok-soft:#DFEDE4;
+    --alarm:#9E3A20; --alarm-soft:#F8E3DC;
   }
   html[data-dark]{
-    --paper:#1B2026;
-    --ground:#12161A;
-    --sunk:#222932;
-    --ink:#ECEAE5;
-    --ink-mid:#9BA4AE;
-    --ink-faint:#6D757E;
-    --rule:#2E3741;
-    --brass:#D7A448;
-    --brass-ink:#1A1204;
-    --brass-soft:#33280F;
-    --tech:#7DA9CC;
-    --ok:#6ABE8C;
-    --ok-soft:#16281E;
-    --danger:#E0785C;
-    --danger-soft:#33201A;
+    --paper:#1A1F25; --ground:#111519; --sunk:#232A32;
+    --ink:#ECEAE5; --ink-mid:#9AA3AC; --ink-faint:#6B737C;
+    --rule:#2D353E;
+    --brass:#D8A54A; --brass-ink:#1A1204; --brass-soft:#322709;
+    --tech:#7FABCE; --tech-soft:#18262F;
+    --ok:#6CC08E; --ok-soft:#15281D;
+    --alarm:#E27C5F; --alarm-soft:#32201A;
   }
-
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   body{
     margin:0;background:var(--ground);color:var(--ink);
     font-family:'Barlow',-apple-system,system-ui,sans-serif;font-size:15px;line-height:1.5;
-    padding-bottom:26px;
+    padding-bottom:30px;
   }
+  h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;margin:0;text-wrap:balance;}
   .mono{font-family:'Roboto Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
-  h1,h2,h3{font-family:'Barlow Condensed',sans-serif;margin:0;text-wrap:balance;}
 
-  /* верхняя панель */
-  .top{
-    position:sticky;top:0;z-index:20;background:var(--ground);
-    padding:12px 14px 0;
-  }
+  .top{position:sticky;top:0;z-index:20;background:var(--ground);padding:12px 14px 0;}
   .brand{display:flex;align-items:baseline;gap:8px;}
-  .brand .name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;}
-  .brand .sub{font-size:11.5px;color:var(--ink-faint);}
-  .tabs{display:flex;gap:6px;margin-top:10px;padding-bottom:10px;}
+  .brand .name{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;}
+  .brand .sub{font-size:11px;color:var(--ink-faint);}
+  .tabs{display:flex;gap:5px;margin-top:10px;padding-bottom:10px;}
   .tab{
     flex:1;border:1px solid var(--rule);background:var(--paper);color:var(--ink-mid);
-    font-family:'Barlow Condensed',sans-serif;font-size:14.5px;font-weight:600;
-    text-transform:uppercase;letter-spacing:.04em;
-    padding:9px 4px;border-radius:9px;cursor:pointer;
+    font-family:'Barlow Condensed',sans-serif;font-size:13.5px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.03em;padding:9px 3px;border-radius:9px;cursor:pointer;
   }
   .tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
-
   main{padding:4px 14px 0;}
-  .screen[hidden]{display:none;}
+  .screen[hidden],[hidden]{display:none!important;}
 
-  /* карточки */
-  .promo{
-    background:var(--brass-soft);border-left:3px solid var(--brass);
-    padding:10px 12px;border-radius:0 9px 9px 0;margin-bottom:12px;
-  }
-  .promo b{font-family:'Roboto Mono',monospace;}
-  .promo .t{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);font-weight:700;font-family:'Roboto Mono',monospace;}
-  .promo .d{font-size:13.5px;margin-top:3px;}
-
-  .card{
-    background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);
-    padding:14px;margin-bottom:11px;
-  }
+  .card{background:var(--paper);border:1px solid var(--rule);border-radius:13px;padding:15px;margin-bottom:11px;}
   .card.hero{border:1.5px solid var(--brass);}
-  .badge{
-    display:inline-block;font-family:'Roboto Mono',monospace;font-size:9.5px;
-    letter-spacing:.11em;text-transform:uppercase;font-weight:700;
-    padding:3px 7px;border-radius:5px;margin-bottom:8px;
-  }
+  .card h3{font-size:20px;font-weight:600;line-height:1.15;}
+  .card .tag{color:var(--ink-mid);font-size:13.5px;margin-top:5px;}
+  .spec{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--ink-faint);margin-top:9px;}
+
+  .badge{display:inline-block;font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.11em;
+    text-transform:uppercase;font-weight:700;padding:3px 7px;border-radius:5px;margin-bottom:9px;}
   .badge.best{background:var(--brass-soft);color:var(--brass);}
   .badge.now{background:var(--ok-soft);color:var(--ok);}
   .badge.soon{background:var(--sunk);color:var(--ink-faint);border:1px solid var(--rule);}
-  .card h3{font-size:20px;font-weight:600;line-height:1.15;}
-  .card .tag{color:var(--ink-mid);font-size:13.5px;margin-top:4px;}
-  .card .spec{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--ink-faint);margin-top:8px;}
+  .badge.free{background:var(--tech-soft);color:var(--tech);}
 
-  .prices{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-top:10px;}
+  .prices{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-top:11px;}
   .prices .now{font-family:'Roboto Mono',monospace;font-size:21px;font-weight:700;}
   .prices .was{font-family:'Roboto Mono',monospace;font-size:13px;color:var(--ink-faint);text-decoration:line-through;}
   .prices .save{font-family:'Roboto Mono',monospace;font-size:10.5px;font-weight:700;color:var(--ok);background:var(--ok-soft);padding:2px 6px;border-radius:5px;}
 
-  details{margin-top:10px;border-top:1px solid var(--rule);padding-top:9px;}
-  summary{list-style:none;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--tech);display:flex;justify-content:space-between;}
+  details{margin-top:11px;border-top:1px solid var(--rule);padding-top:10px;}
+  summary{list-style:none;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:14px;
+    font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--tech);display:flex;justify-content:space-between;}
   summary::-webkit-details-marker{display:none;}
   summary::after{content:"+";font-family:'Roboto Mono',monospace;color:var(--ink-faint);}
   details[open] summary::after{content:"–";}
-  details ul{margin:9px 0 0;padding-left:18px;color:var(--ink-mid);font-size:13.5px;}
+  details ul{margin:10px 0 0;padding-left:18px;color:var(--ink-mid);font-size:13.5px;}
   details li{margin-bottom:5px;}
   details li::marker{color:var(--brass);}
 
-  /* кнопки — плотные, без прозрачности */
-  .btn{
-    display:block;width:100%;text-align:center;text-decoration:none;cursor:pointer;
+  .btn{display:block;width:100%;text-align:center;cursor:pointer;
     font-family:'Barlow Condensed',sans-serif;font-size:16.5px;font-weight:600;
-    text-transform:uppercase;letter-spacing:.05em;
-    padding:12px;border-radius:10px;margin-top:10px;border:1.5px solid transparent;
-  }
+    text-transform:uppercase;letter-spacing:.05em;padding:13px;border-radius:11px;
+    margin-top:11px;border:1.5px solid transparent;}
   .btn.primary{background:var(--brass);color:var(--brass-ink);border-color:var(--brass);}
   .btn.dark{background:var(--ink);color:var(--paper);border-color:var(--ink);}
   .btn.plain{background:var(--paper);color:var(--ink);border-color:var(--rule);}
   .btn:active{transform:translateY(1px);}
 
-  /* калькулятор */
-  .field{margin-top:14px;}
-  .field label{display:block;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-mid);margin-bottom:7px;}
-  input[type="number"]{
-    width:100%;padding:13px;border:1.5px solid var(--rule);border-radius:10px;
-    background:var(--paper);color:var(--ink);font-family:'Roboto Mono',monospace;font-size:18px;font-weight:700;
+  /* проверка по этапу */
+  .stage-btn{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;
+    background:var(--paper);border:1px solid var(--rule);border-radius:12px;
+    padding:15px;margin-bottom:9px;cursor:pointer;text-align:left;color:var(--ink);
   }
+  .stage-btn strong{font-family:'Barlow Condensed',sans-serif;font-size:17.5px;font-weight:600;display:block;}
+  .stage-btn span{font-size:12.5px;color:var(--ink-mid);}
+  .stage-btn .go{font-family:'Roboto Mono',monospace;color:var(--brass);font-size:17px;flex:0 0 auto;}
+
+  .check h3{font-size:21px;}
+  .check .body{margin-top:11px;font-size:14.5px;white-space:pre-line;color:var(--ink);}
+  .lead{background:var(--tech-soft);border-left:3px solid var(--tech);padding:11px 13px;border-radius:0 10px 10px 0;margin-bottom:12px;}
+  .lead p{margin:0;font-size:13.5px;color:var(--ink-mid);}
+
+  /* расчёт */
+  .field{margin-top:15px;}
+  .field label{display:block;font-family:'Barlow Condensed',sans-serif;font-size:13.5px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;color:var(--ink-mid);margin-bottom:7px;}
+  input[type="number"]{width:100%;padding:13px;border:1.5px solid var(--rule);border-radius:11px;
+    background:var(--paper);color:var(--ink);font-family:'Roboto Mono',monospace;font-size:18px;font-weight:700;}
   input[type="number"]:focus{outline:none;border-color:var(--brass);}
   .seg{display:flex;gap:6px;}
-  .seg button{
-    flex:1;padding:11px 4px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink-mid);
-    border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;
-    text-transform:uppercase;cursor:pointer;
-  }
+  .seg button{flex:1;padding:11px 3px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink-mid);
+    border-radius:11px;font-family:'Barlow Condensed',sans-serif;font-size:13.5px;font-weight:600;
+    text-transform:uppercase;cursor:pointer;}
   .seg button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
-
-  .result{margin-top:14px;}
   .row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--rule);}
   .row span:first-child{color:var(--ink-mid);font-size:14px;}
   .row span:last-child{font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;}
   .row.total span:last-child{font-size:19px;}
-  .risk{
-    margin-top:13px;background:var(--danger-soft);border-left:3px solid var(--danger);
-    padding:12px;border-radius:0 9px 9px 0;
-  }
-  .risk .t{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--danger);font-weight:700;}
-  .risk .n{font-family:'Roboto Mono',monospace;font-size:25px;font-weight:700;margin:4px 0 5px;}
+  .risk{margin-top:14px;background:var(--alarm-soft);border-left:3px solid var(--alarm);padding:13px;border-radius:0 10px 10px 0;}
+  .risk .t{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--alarm);font-weight:700;}
+  .risk .n{font-family:'Roboto Mono',monospace;font-size:26px;font-weight:700;margin:4px 0 5px;}
   .risk p{margin:0;font-size:13.5px;color:var(--ink-mid);}
-
   .note{font-size:12px;color:var(--ink-faint);margin-top:12px;line-height:1.55;}
 
-  /* метод */
-  .level{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid var(--rule);}
-  .level .n{
-    flex:0 0 30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-    font-family:'Roboto Mono',monospace;font-weight:700;font-size:14px;
-  }
+  .level{display:flex;gap:11px;padding:13px 0;border-bottom:1px solid var(--rule);}
+  .level .n{flex:0 0 30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    font-family:'Roboto Mono',monospace;font-weight:700;font-size:14px;}
   .level.l1 .n{background:var(--ok-soft);color:var(--ok);}
   .level.l2 .n{background:var(--brass-soft);color:var(--brass);}
-  .level.l3 .n{background:var(--danger-soft);color:var(--danger);}
-  .level h4{margin:0 0 3px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:600;}
+  .level.l3 .n{background:var(--alarm-soft);color:var(--alarm);}
+  .level h4{margin:0 0 3px;font-size:16px;font-weight:600;}
   .level p{margin:0;font-size:13.5px;color:var(--ink-mid);}
+
+  .promo{background:var(--brass-soft);border-left:3px solid var(--brass);padding:10px 12px;border-radius:0 10px 10px 0;margin-bottom:12px;}
+  .promo .t{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);font-weight:700;font-family:'Roboto Mono',monospace;}
+  .promo .d{font-size:13.5px;margin-top:3px;}
+  .promo b{font-family:'Roboto Mono',monospace;}
 </style>
 </head>
 <body>
 
 <div class="top">
-  <div class="brand">
-    <span class="name">GuideCore</span>
-    <span class="sub">14 лет в стройке</span>
-  </div>
+  <div class="brand"><span class="name">GuideCore</span><span class="sub">14 лет в стройке</span></div>
   <div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="true" data-screen="catalog">Гайды</button>
+    <button class="tab" role="tab" aria-selected="true" data-screen="check">Проверка</button>
+    <button class="tab" role="tab" aria-selected="false" data-screen="catalog">Гайды</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="calc">Расчёт</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="method">Метод</button>
   </div>
@@ -184,11 +151,39 @@
 
 <main>
 
-<section class="screen" id="catalog">
-  <div class="promo">
-    <div class="t">Цена запуска</div>
-    <div class="d">До <b>16 октября</b>. После — полные цены.</div>
+<!-- ПРОВЕРКА -->
+<section class="screen" id="check">
+  <div id="stage-list">
+    <div class="lead"><p>Выберите этап — дам проверку, которую можно сделать сегодня. Бесплатно, без подписок.</p></div>
+    <button class="stage-btn" data-stage="planning">
+      <span><strong>Только планирую</strong><span>Решения, которые потом не поменять</span></span><span class="go">→</span>
+    </button>
+    <button class="stage-btn" data-stage="crew">
+      <span><strong>Выбираю бригаду</strong><span>Пункт, из-за которого теряют претензию</span></span><span class="go">→</span>
+    </button>
+    <button class="stage-btn" data-stage="ongoing">
+      <span><strong>Ремонт идёт</strong><span>Проверка окон за пять минут</span></span><span class="go">→</span>
+    </button>
+    <button class="stage-btn" data-stage="acceptance">
+      <span><strong>Принимаю работу</strong><span>Как не остаться без рычага</span></span><span class="go">→</span>
+    </button>
+    <button class="btn plain" data-start="free">Бесплатный чек-лист в боте</button>
   </div>
+
+  <div id="stage-detail" hidden>
+    <div class="card check">
+      <span class="badge free">Бесплатно</span>
+      <h3 id="check-title"></h3>
+      <div class="body" id="check-body"></div>
+    </div>
+    <button class="btn primary" data-tab="calc">Посчитать, чем я рискую</button>
+    <button class="btn plain" data-back="1">К другим этапам</button>
+  </div>
+</section>
+
+<!-- ГАЙДЫ -->
+<section class="screen" id="catalog" hidden>
+  <div class="promo"><div class="t">Цена запуска</div><div class="d">До <b>16 октября</b>. После — полные цены.</div></div>
 
   <article class="card hero">
     <span class="badge best">Берут чаще всего</span>
@@ -196,14 +191,11 @@
     <p class="tag">Базовый гайд плюс ваш сегмент — эконом или стандарт-комфорт.</p>
     <div class="prices"><span class="now">1 640 ₽</span><span class="was">3 740 ₽</span><span class="save">−720 ₽</span></div>
     <p class="spec">43 страницы · два PDF · шпаргалки и чек-листы</p>
-    <details>
-      <summary>Что внутри</summary>
-      <ul>
-        <li>Бюджет, контроль этапов, договор, 5 конфликтов с бригадой</li>
-        <li>Сегментная часть: бренды с ценами под ваш бюджет</li>
-        <li>Обе шпаргалки и два чек-листа для печати</li>
-      </ul>
-    </details>
+    <details><summary>Что внутри</summary><ul>
+      <li>Бюджет, контроль этапов, договор, 5 конфликтов с бригадой</li>
+      <li>Сегментная часть: бренды с ценами под ваш бюджет</li>
+      <li>Обе шпаргалки и два чек-листа для печати</li>
+    </ul></details>
     <button class="btn primary" data-buy="bundle_econom">Забрать за 1 640 ₽</button>
   </article>
 
@@ -222,16 +214,13 @@
     <p class="tag">Базовый гайд: что контролировать на любом ремонте.</p>
     <div class="prices"><span class="now">1 180 ₽</span><span class="was">1 880 ₽</span></div>
     <p class="spec">22 страницы · 6 разделов · 33 подпункта</p>
-    <details>
-      <summary>Что внутри</summary>
-      <ul>
-        <li>Что решить до начала ремонта</li>
-        <li>Бюджет: работы и материалы отдельно, три класса</li>
-        <li>5 развилок решений и точки контроля по нормативам</li>
-        <li>Договор: неустойка, форс-мажор, приёмка материалов</li>
-        <li>5 конфликтов с бригадой по шагам</li>
-      </ul>
-    </details>
+    <details><summary>Что внутри</summary><ul>
+      <li>Что решить до начала ремонта</li>
+      <li>Бюджет: работы и материалы отдельно, три класса</li>
+      <li>5 развилок решений и точки контроля по нормативам</li>
+      <li>Договор: неустойка, форс-мажор, приёмка материалов</li>
+      <li>5 конфликтов с бригадой по шагам</li>
+    </ul></details>
     <button class="btn plain" data-buy="main">Забрать за 1 180 ₽</button>
   </article>
 
@@ -263,6 +252,7 @@
   <p class="note">Полная цена комплекта равна сумме входящих гайдов, поэтому зачёркнутая цифра подтверждаема. Цена запуска действует 30 дней и не продлевается.</p>
 </section>
 
+<!-- РАСЧЁТ -->
 <section class="screen" id="calc" hidden>
   <div class="card">
     <h3>Сколько денег проходит через ваш ремонт</h3>
@@ -272,7 +262,6 @@
       <label for="area">Площадь, м²</label>
       <input type="number" id="area" value="52" min="5" max="500" inputmode="numeric">
     </div>
-
     <div class="field">
       <label>Класс ремонта</label>
       <div class="seg" id="seg">
@@ -282,7 +271,7 @@
       </div>
     </div>
 
-    <div class="result">
+    <div style="margin-top:14px">
       <div class="row"><span>Работы</span><span id="r-works">—</span></div>
       <div class="row"><span>Материалы</span><span id="r-mat">—</span></div>
       <div class="row total"><span>Бюджет</span><span id="r-total">—</span></div>
@@ -296,30 +285,20 @@
 
     <p class="note" id="r-share"></p>
     <button class="btn primary" data-buy="bundle_econom">Забрать комплект за 1 640 ₽</button>
-    <p class="note">Ставки за метр — ориентировочные, для прикидки порядка суммы. Точный расчёт по вашей смете разобран в гайде.</p>
+    <p class="note">Ставки за метр ориентировочные, для прикидки порядка суммы. Точный расчёт по вашей смете разобран в гайде.</p>
   </div>
 </section>
 
+<!-- МЕТОД -->
 <section class="screen" id="method" hidden>
   <div class="card">
     <h3>Метод «Точка невозврата»</h3>
     <p class="tag">У каждого решения в ремонте своя цена передумать. Мы размечаем их по трём уровням.</p>
-
-    <div class="level l1">
-      <div class="n">1</div>
-      <div><h4>Можно переделать дёшево</h4><p>Доработка без демонтажа готовой отделки.</p></div>
-    </div>
-    <div class="level l2">
-      <div class="n">2</div>
-      <div><h4>Переделка уже дорогая</h4><p>Потребует разобрать часть готового.</p></div>
-    </div>
-    <div class="level l3">
-      <div class="n">3</div>
-      <div><h4>После закрытия практически поздно</h4><p>Разбор стяжки, стен или отделки целиком.</p></div>
-    </div>
-
+    <div class="level l1"><div class="n">1</div><div><h4>Можно переделать дёшево</h4><p>Доработка без демонтажа готовой отделки.</p></div></div>
+    <div class="level l2"><div class="n">2</div><div><h4>Переделка уже дорогая</h4><p>Потребует разобрать часть готового.</p></div></div>
+    <div class="level l3"><div class="n">3</div><div><h4>После закрытия практически поздно</h4><p>Разбор стяжки, стен или отделки целиком.</p></div></div>
     <p class="note">Смысл контроля не в том, чтобы следить за бригадой круглосуточно, а в том, чтобы не проспать решения третьего уровня. Их в ремонте десятка полтора, и все они известны заранее.</p>
-    <button class="btn dark" data-start="free">Забрать бесплатный чек-лист</button>
+    <button class="btn dark" data-tab="check">Проверить свой этап</button>
   </div>
 </section>
 
@@ -330,76 +309,98 @@
   var tg = window.Telegram && window.Telegram.WebApp;
   var BOT = "VVA_Guide_Bot";
 
+  var CHECKS = {
+    planning: {
+      title: "Три решения, которые потом не поменять",
+      body: "Пройдите по списку до начала работ. Всё это — уровень «после закрытия практически поздно»: переделка означает разбор стяжки или стен целиком.\n\n1. Гидроизоляция санузла. Обмазочная дороже рулонной, зато не теряет свойств, даже если слой позже повредят. Рулонная дешевле, но одна пробитая труба под стяжкой — и вода у соседей снизу.\n\n2. Электрика по полу или по потолку. Решается до штукатурки, меняется только со вскрытием.\n\n3. Шумоизоляция стен и потолка. После отделки к ней не вернуться.\n\nЕсли по какому-то пункту ответа нет — это и есть ваш ближайший риск."
+    },
+    crew: {
+      title: "Пункт, из-за которого теряют право на претензию",
+      body: "Приёмка материалов от заказчика.\n\nЕсли материал привезли на объект и бригада сразу не составила акт о несоответствии — он считается принятым без возражений. Обратной силы это не имеет: жаловаться на брак через неделю уже поздно.\n\nЧто сделать сегодня: впишите в договор, что приёмка материала оформляется актом в день поставки, и что до подписания акта ответственность за брак на бригаде.\n\nВопрос бригаде, который сразу многое покажет: «как оформляем приёмку материалов и что будет, если партия окажется бракованной?»"
+    },
+    ongoing: {
+      title: "Приёмка окон: пять минут против промерзания зимой",
+      body: "Монтажную пену под демпфером часто наносят кусками. Снаружи не видно ничего, а зимой стена продувает и промерзает.\n\nКак проверить: снимите демпфер по периметру окна и посмотрите, есть ли пропуски в пене.\n\nЕсли пропуски есть: подрежьте старую пену, сделайте выемку, пройдите весь периметр заново без пропусков и переклейте демпфер.\n\nВажно: после подписания акта приёмки квартиры предъявить застройщику уже нечего. Проверяйте до, а не после."
+    },
+    acceptance: {
+      title: "Приёмка в два этапа и удержание 10-15%",
+      body: "Проплешины на покраске и швы на обоях часто незаметны сразу — они проявляются только после установки светильников, когда бригада уже получила деньги и уехала.\n\nКак делать: приёмка в два этапа. Первая — сразу после отделки. Вторая, финальная — при полном освещении, когда светильники стоят. До финальной приёмки заказчик удерживает 10-15% от стоимости этапа.\n\nЭто единственный рычаг, который работает без суда: пока деньги не отданы, недоделки исправляют."
+    }
+  };
+
   if (tg) {
-    tg.ready();
-    tg.expand();
-    if (tg.colorScheme === "dark") document.documentElement.setAttribute("data-dark", "");
+    tg.ready(); tg.expand();
+    if (tg.colorScheme === "dark") document.documentElement.setAttribute("data-dark","");
     if (tg.themeParams && tg.themeParams.bg_color) {
       document.body.style.background = tg.themeParams.bg_color;
       document.querySelector(".top").style.background = tg.themeParams.bg_color;
     }
-    if (tg.enableClosingConfirmation) { /* закрытие свайпом остаётся включённым */ }
-  } else {
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.setAttribute("data-dark", "");
-    }
+  } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.documentElement.setAttribute("data-dark","");
   }
 
+  function haptic(kind){
+    try { tg && tg.HapticFeedback && tg.HapticFeedback.impactOccurred(kind || "light"); } catch(e){}
+  }
   function openBot(payload){
     var url = "https://t.me/" + BOT + "?start=" + payload;
     if (tg && tg.openTelegramLink) { tg.openTelegramLink(url); tg.close(); }
     else { window.open(url, "_blank"); }
   }
+  function showTab(name){
+    document.querySelectorAll(".tab").forEach(function(t){
+      t.setAttribute("aria-selected", String(t.dataset.screen === name));
+    });
+    document.querySelectorAll(".screen").forEach(function(s){ s.hidden = s.id !== name; });
+    window.scrollTo(0,0);
+  }
+  function showStages(){
+    document.getElementById("stage-list").hidden = false;
+    document.getElementById("stage-detail").hidden = true;
+    if (tg && tg.BackButton) tg.BackButton.hide();
+    window.scrollTo(0,0);
+  }
 
   document.addEventListener("click", function(e){
-    var buy = e.target.closest("[data-buy]");
-    if (buy) { openBot("buy_" + buy.dataset.buy); return; }
-    var start = e.target.closest("[data-start]");
-    if (start) { openBot(start.dataset.start); return; }
+    var el;
+    if ((el = e.target.closest("[data-buy]"))) { haptic("medium"); openBot("buy_" + el.dataset.buy); return; }
+    if ((el = e.target.closest("[data-start]"))) { haptic(); openBot(el.dataset.start); return; }
+    if ((el = e.target.closest("[data-tab]"))) { haptic(); showTab(el.dataset.tab); return; }
+    if ((el = e.target.closest("[data-back]"))) { haptic(); showStages(); return; }
+    if ((el = e.target.closest(".tab"))) { haptic(); showTab(el.dataset.screen); return; }
+    if ((el = e.target.closest("[data-stage]"))) {
+      haptic();
+      var c = CHECKS[el.dataset.stage];
+      document.getElementById("check-title").textContent = c.title;
+      document.getElementById("check-body").textContent = c.body;
+      document.getElementById("stage-list").hidden = true;
+      document.getElementById("stage-detail").hidden = false;
+      if (tg && tg.BackButton) { tg.BackButton.show(); tg.BackButton.onClick(showStages); }
+      window.scrollTo(0,0);
+      return;
+    }
   });
 
-  // вкладки
-  var tabs = document.querySelectorAll(".tab");
-  tabs.forEach(function(tab){
-    tab.addEventListener("click", function(){
-      tabs.forEach(function(t){ t.setAttribute("aria-selected", String(t === tab)); });
-      document.querySelectorAll(".screen").forEach(function(s){
-        s.hidden = s.id !== tab.dataset.screen;
-      });
-      window.scrollTo(0, 0);
-    });
-  });
-
-  // калькулятор
   var RATES = { econom:[9000,7000], standard:[18000,14000], premium:[34000,31000] };
-  var PRICE = 1640;
-  var cls = "standard";
+  var PRICE = 1640, cls = "standard";
   var areaInput = document.getElementById("area");
-
-  function money(n){ return n.toLocaleString("ru-RU").replace(/,/g," ") + " ₽"; }
-
+  function money(n){ return n.toLocaleString("ru-RU").replace(/ /g," ") + " ₽"; }
   function recalc(){
-    var area = parseInt(areaInput.value, 10);
+    var area = parseInt(areaInput.value,10);
     if (!area || area < 5 || area > 500) area = 52;
-    var rate = RATES[cls];
-    var works = area * rate[0], mat = area * rate[1], total = works + mat;
-    var risk = Math.round(total * 0.05);
+    var r = RATES[cls], works = area*r[0], mat = area*r[1], total = works+mat;
+    var risk = Math.round(total*0.05);
     document.getElementById("r-works").textContent = money(works);
     document.getElementById("r-mat").textContent = money(mat);
     document.getElementById("r-total").textContent = money(total);
     document.getElementById("r-risk").textContent = money(risk);
     document.getElementById("r-share").textContent =
-      "Комплект стоит " + PRICE + " ₽ — это " + (PRICE / risk * 100).toFixed(1) +
-      "% от суммы, которой вы рискуете.";
+      "Комплект стоит " + PRICE + " ₽ — это " + (PRICE/risk*100).toFixed(1) + "% от суммы, которой вы рискуете.";
   }
-
   document.getElementById("seg").addEventListener("click", function(e){
-    var b = e.target.closest("[data-cls]");
-    if (!b) return;
-    cls = b.dataset.cls;
-    this.querySelectorAll("button").forEach(function(x){
-      x.setAttribute("aria-pressed", String(x === b));
-    });
+    var b = e.target.closest("[data-cls]"); if (!b) return;
+    haptic(); cls = b.dataset.cls;
+    this.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); });
     recalc();
   });
   areaInput.addEventListener("input", recalc);
