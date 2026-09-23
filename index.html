@@ -273,7 +273,7 @@
 
     <div style="margin-top:14px">
       <div class="row"><span>Работы</span><span id="r-works">—</span></div>
-      <div class="row"><span>Материалы</span><span id="r-mat">—</span></div>
+      <div class="row"><span>Черновые материалы</span><span id="r-mat">—</span></div>
       <div class="row total"><span>Бюджет</span><span id="r-total">—</span></div>
     </div>
 
@@ -285,7 +285,7 @@
 
     <p class="note" id="r-share"></p>
     <button class="btn primary" data-buy="bundle_econom">Забрать комплект за 1 640 ₽</button>
-    <p class="note">Ставки за метр ориентировочные, для прикидки порядка суммы. Точный расчёт по вашей смете разобран в гайде.</p>
+    <p class="note">Цены по Москве и области, сентябрь 2026. В регионах дешевле на 15–30%. Чистовая отделка, сантехника, мебель и техника считаются отдельно. На малом метраже цена за м² обычно выше: санузел и кухня занимают большую долю площади. Цифры — из раздела 2 основного гайда.</p>
   </div>
 </section>
 
@@ -381,22 +381,32 @@
     }
   });
 
-  var RATES = { econom:[9000,7000], standard:[18000,14000], premium:[34000,31000] };
+  // Работы и материалы — раздел 2.1-2.2 основного гайда, Москва и область,
+  // сентябрь 2026. Все ставки в гайде даны как «от», поэтому итог тоже «от».
+  // [работы от, черновые материалы от, черновые материалы до] ₽/м²
+  var RATES = {
+    econom:   [12000, 10000, 12000],
+    standard: [25000, 15000, 25000],
+    premium:  [40000, 30000, 45000]
+  };
   var PRICE = 1640, cls = "standard";
   var areaInput = document.getElementById("area");
-  function money(n){ return n.toLocaleString("ru-RU").replace(/ /g," ") + " ₽"; }
+  function money(n){ return n.toLocaleString("ru-RU") + " \u20BD"; }
   function recalc(){
     var area = parseInt(areaInput.value,10);
     if (!area || area < 5 || area > 500) area = 52;
-    var r = RATES[cls], works = area*r[0], mat = area*r[1], total = works+mat;
+    var r = RATES[cls];
+    var works = area*r[0], matFrom = area*r[1], matTo = area*r[2];
+    var total = works + matFrom;
     var risk = Math.round(total*0.05);
-    document.getElementById("r-works").textContent = money(works);
-    document.getElementById("r-mat").textContent = money(mat);
-    document.getElementById("r-total").textContent = money(total);
+    document.getElementById("r-works").textContent = "\u043E\u0442 " + money(works);
+    document.getElementById("r-mat").textContent = money(matFrom) + " \u2013 " + money(matTo);
+    document.getElementById("r-total").textContent = "\u043E\u0442 " + money(total);
     document.getElementById("r-risk").textContent = money(risk);
     document.getElementById("r-share").textContent =
-      "Комплект стоит " + money(PRICE) + " — это " + (PRICE/risk*100).toFixed(1) +
-      "% от суммы, которой вы рискуете.";
+      "\u041A\u043E\u043C\u043F\u043B\u0435\u043A\u0442 \u0441\u0442\u043E\u0438\u0442 " + money(PRICE) +
+      " \u2014 \u044D\u0442\u043E " + (PRICE/risk*100).toFixed(1) +
+      "% \u043E\u0442 \u0441\u0443\u043C\u043C\u044B, \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0432\u044B \u0440\u0438\u0441\u043A\u0443\u0435\u0442\u0435.";
   }
   document.getElementById("seg").addEventListener("click", function(e){
     var b = e.target.closest("[data-cls]"); if (!b) return;
