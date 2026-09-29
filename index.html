@@ -314,10 +314,24 @@
 (function(){
   var tg = window.Telegram && window.Telegram.WebApp;
   var BOT = "VVA_Guide_Bot";
-  // Та же дата, что PROMO_UNTIL в catalog.py. Бот считает акцию активной,
-  // пока до этой даты остаётся хотя бы день, — здесь то же самое.
+  // Дата акции — из config.json, общего с ботом (копия кладётся сюда
+  // скриптом sync-config.sh). Значение ниже — запасное на случай, если
+  // файл не загрузился; держать его равным promo_until в конфиге.
   var PROMO_UNTIL = new Date(2026, 9, 16);
   var promoActive = new Date() < PROMO_UNTIL;
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "config.json", false);
+    xhr.send(null);
+    if (xhr.status === 200) {
+      var cfg = JSON.parse(xhr.responseText);
+      if (cfg.promo_until) {
+        var p = cfg.promo_until.split("-");
+        PROMO_UNTIL = new Date(+p[0], +p[1] - 1, +p[2]);
+        promoActive = new Date() < PROMO_UNTIL;
+      }
+    }
+  } catch (e) {}
 
   var CHECKS = {
     planning: {
