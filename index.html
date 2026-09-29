@@ -183,20 +183,21 @@
 
 <!-- ГАЙДЫ -->
 <section class="screen" id="catalog" hidden>
-  <div class="promo"><div class="t">Цена запуска</div><div class="d">До <b>16 октября</b>. После — полные цены.</div></div>
+  <div class="promo" id="promo"><div class="t">Цена запуска</div><div class="d">До <b>16 октября</b>. После — полные цены.</div></div>
 
   <article class="card hero">
     <span class="badge best">Берут чаще всего</span>
     <h3>Основной + сегмент</h3>
     <p class="tag">Базовый гайд плюс ваш сегмент — эконом или стандарт-комфорт.</p>
     <div class="prices"><span class="now">1 640 ₽</span><span class="was">3 740 ₽</span><span class="save">−720 ₽</span></div>
-    <p class="spec">43 страницы · два PDF · шпаргалки и чек-листы</p>
+    <p class="spec">44–47 страниц · два PDF · шпаргалки и чек-листы</p>
     <details><summary>Что внутри</summary><ul>
       <li>Бюджет, контроль этапов, договор, 5 конфликтов с бригадой</li>
       <li>Сегментная часть: бренды с ценами под ваш бюджет</li>
       <li>Обе шпаргалки и два чек-листа для печати</li>
     </ul></details>
-    <button class="btn primary" data-buy="bundle_econom">Забрать за 1 640 ₽</button>
+    <button class="btn primary" data-buy="bundle_econom">Базовый + Эконом — <span class="p">1 640 ₽</span></button>
+    <button class="btn primary" data-buy="bundle_standard">Базовый + Стандарт-комфорт — <span class="p">1 640 ₽</span></button>
   </article>
 
   <article class="card">
@@ -204,8 +205,8 @@
     <h3>Все три гайда</h3>
     <p class="tag">Базовый, эконом и стандарт вместе — когда бюджет ещё не определён.</p>
     <div class="prices"><span class="now">2 440 ₽</span><span class="was">5 640 ₽</span><span class="save">−1 100 ₽</span></div>
-    <p class="spec">65 страниц · три PDF</p>
-    <button class="btn dark" data-buy="bundle_all">Забрать за 2 440 ₽</button>
+    <p class="spec">68 страниц · три PDF</p>
+    <button class="btn dark" data-buy="bundle_all">Забрать за <span class="p">2 440 ₽</span></button>
   </article>
 
   <article class="card">
@@ -213,7 +214,7 @@
     <h3>Сохрани себе нервы и деньги</h3>
     <p class="tag">Базовый гайд: что контролировать на любом ремонте.</p>
     <div class="prices"><span class="now">1 180 ₽</span><span class="was">1 880 ₽</span></div>
-    <p class="spec">22 страницы · 6 разделов · 33 подпункта</p>
+    <p class="spec">23 страницы · 6 разделов · 33 подпункта</p>
     <details><summary>Что внутри</summary><ul>
       <li>Что решить до начала ремонта</li>
       <li>Бюджет: работы и материалы отдельно, три класса</li>
@@ -221,7 +222,7 @@
       <li>Договор: неустойка, форс-мажор, приёмка материалов</li>
       <li>5 конфликтов с бригадой по шагам</li>
     </ul></details>
-    <button class="btn plain" data-buy="main">Забрать за 1 180 ₽</button>
+    <button class="btn plain" data-buy="main">Забрать за <span class="p">1 180 ₽</span></button>
   </article>
 
   <article class="card">
@@ -230,7 +231,7 @@
     <p class="tag">Где экономия безопасна, а где вернётся переделкой.</p>
     <div class="prices"><span class="now">1 180 ₽</span><span class="was">1 880 ₽</span></div>
     <p class="spec">21 страница · 14 разделов · дополнение к базовому</p>
-    <button class="btn plain" data-buy="econom">Забрать за 1 180 ₽</button>
+    <button class="btn plain" data-buy="econom">Забрать за <span class="p">1 180 ₽</span></button>
   </article>
 
   <article class="card">
@@ -238,8 +239,8 @@
     <h3>Стандарт-комфорт</h3>
     <p class="tag">Ремонт для комфортной жизни на годы — без переплаты за воздух.</p>
     <div class="prices"><span class="now">1 180 ₽</span><span class="was">1 880 ₽</span></div>
-    <p class="spec">22 страницы · 19 разделов · дополнение к базовому</p>
-    <button class="btn plain" data-buy="standard">Забрать за 1 180 ₽</button>
+    <p class="spec">24 страницы · 19 разделов · дополнение к базовому</p>
+    <button class="btn plain" data-buy="standard">Забрать за <span class="p">1 180 ₽</span></button>
   </article>
 
   <article class="card">
@@ -249,7 +250,7 @@
     <button class="btn plain" data-start="soon">Посмотреть и записаться</button>
   </article>
 
-  <p class="note">Полная цена комплекта равна сумме входящих гайдов, поэтому зачёркнутая цифра подтверждаема. Цена запуска действует 30 дней и не продлевается.</p>
+  <p class="note" id="promo-note">Полная цена комплекта равна сумме входящих гайдов, поэтому зачёркнутая цифра подтверждаема. Цена запуска действует 30 дней и не продлевается.</p>
 </section>
 
 <!-- РАСЧЁТ -->
@@ -284,7 +285,7 @@
     </div>
 
     <p class="note" id="r-share"></p>
-    <button class="btn primary" data-buy="bundle_econom">Забрать комплект за 1 640 ₽</button>
+    <button class="btn primary" id="calc-buy" data-buy="bundle_econom">Забрать за 1 640 ₽</button>
     <details>
       <summary>Что входит в черновые материалы</summary>
       <p class="note" style="margin-top:9px">Черновые материалы — это то, что уходит под отделку и потом не видно.</p>
@@ -313,6 +314,10 @@
 (function(){
   var tg = window.Telegram && window.Telegram.WebApp;
   var BOT = "VVA_Guide_Bot";
+  // Та же дата, что PROMO_UNTIL в catalog.py. Бот считает акцию активной,
+  // пока до этой даты остаётся хотя бы день, — здесь то же самое.
+  var PROMO_UNTIL = new Date(2026, 9, 16);
+  var promoActive = new Date() < PROMO_UNTIL;
 
   var CHECKS = {
     planning: {
@@ -324,7 +329,7 @@
       body: "Приёмка материалов от заказчика.\n\nЕсли материал привезли на объект и бригада сразу не составила акт о несоответствии — он считается принятым без возражений. Обратной силы это не имеет: жаловаться на брак через неделю уже поздно.\n\nЧто сделать сегодня: впишите в договор, что приёмка материала оформляется актом в день поставки, и что до подписания акта ответственность за брак на бригаде.\n\nВопрос бригаде, который сразу многое покажет: «как оформляем приёмку материалов и что будет, если партия окажется бракованной?»"
     },
     ongoing: {
-      title: "Приёмка окон: пять минут против промерзания зимой",
+      title: "Приёмка окон: пять минут сейчас против промерзания зимой",
       body: "Монтажную пену под демпфером часто наносят кусками. Снаружи не видно ничего, а зимой стена продувает и промерзает.\n\nКак проверить: снимите демпфер по периметру окна и посмотрите, есть ли пропуски в пене.\n\nЕсли пропуски есть: подрежьте старую пену, сделайте выемку, пройдите весь периметр заново без пропусков и переклейте демпфер.\n\nВажно: после подписания акта приёмки квартиры предъявить застройщику уже нечего. Проверяйте до, а не после."
     },
     acceptance: {
@@ -352,18 +357,34 @@
     if (tg && tg.openTelegramLink) { tg.openTelegramLink(url); tg.close(); }
     else { window.open(url, "_blank"); }
   }
-  function showTab(name){
-    document.querySelectorAll(".tab").forEach(function(t){
-      t.setAttribute("aria-selected", String(t.dataset.screen === name));
-    });
-    document.querySelectorAll(".screen").forEach(function(s){ s.hidden = s.id !== name; });
-    window.scrollTo(0,0);
-  }
   function showStages(){
     document.getElementById("stage-list").hidden = false;
     document.getElementById("stage-detail").hidden = true;
     if (tg && tg.BackButton) tg.BackButton.hide();
     window.scrollTo(0,0);
+  }
+  function showTab(name){
+    document.querySelectorAll(".tab").forEach(function(t){
+      t.setAttribute("aria-selected", String(t.dataset.screen === name));
+    });
+    document.querySelectorAll(".screen").forEach(function(s){ s.hidden = s.id !== name; });
+    // Открытая проверка не должна пережить смену вкладки: иначе кнопка «назад»
+    // Telegram висит на чужом экране, а «Проверка» открывается не со списка.
+    showStages();
+  }
+  if (tg && tg.BackButton) tg.BackButton.onClick(showStages);
+
+  // После акции: убрать плашку, зачёркнутые цены и выгоду, поставить полную цену.
+  if (!promoActive) {
+    var promo = document.getElementById("promo"); if (promo) promo.hidden = true;
+    var pnote = document.getElementById("promo-note"); if (pnote) pnote.hidden = true;
+    document.querySelectorAll(".card").forEach(function(card){
+      var now = card.querySelector(".prices .now"), was = card.querySelector(".prices .was");
+      if (!now || !was) return;
+      now.textContent = was.textContent;
+      card.querySelectorAll(".prices .was, .prices .save").forEach(function(x){ x.remove(); });
+      card.querySelectorAll(".btn .p").forEach(function(x){ x.textContent = was.textContent; });
+    });
   }
 
   document.addEventListener("click", function(e){
@@ -380,7 +401,7 @@
       document.getElementById("check-body").textContent = c.body;
       document.getElementById("stage-list").hidden = true;
       document.getElementById("stage-detail").hidden = false;
-      if (tg && tg.BackButton) { tg.BackButton.show(); tg.BackButton.onClick(showStages); }
+      if (tg && tg.BackButton) tg.BackButton.show();
       window.scrollTo(0,0);
       return;
     }
@@ -389,29 +410,42 @@
   // Работы и материалы — раздел 2.1-2.2 основного гайда, Москва и область,
   // сентябрь 2026. Все ставки в гайде даны как «от», поэтому итог тоже «от».
   // [работы от, черновые материалы от, черновые материалы до] ₽/м²
+  // У премиума верхней границы в гайде нет («от 30 000 ₽/м² и выше») — null.
   var RATES = {
     econom:   [12000, 10000, 12000],
     standard: [25000, 15000, 25000],
-    premium:  [40000, 30000, 45000]
+    premium:  [40000, 30000, null]
   };
-  var PRICE = 1640, cls = "standard";
+  // Что предлагаем после расчёта — как CALC_GUIDE_BY_CLASS в catalog.py.
+  var OFFER = {
+    econom:   { id: "bundle_econom",   name: "\u041a\u043e\u043c\u043f\u043b\u0435\u043a\u0442 \u00ab\u0411\u0430\u0437\u043e\u0432\u044b\u0439 + \u042d\u043a\u043e\u043d\u043e\u043c\u00bb", promo: 1640, full: 3740 },
+    standard: { id: "bundle_standard", name: "\u041a\u043e\u043c\u043f\u043b\u0435\u043a\u0442 \u00ab\u0411\u0430\u0437\u043e\u0432\u044b\u0439 + \u0421\u0442\u0430\u043d\u0434\u0430\u0440\u0442-\u043a\u043e\u043c\u0444\u043e\u0440\u0442\u00bb", promo: 1640, full: 3740 },
+    premium:  { id: "main",            name: "\u0413\u0430\u0439\u0434 \u00ab\u0421\u043e\u0445\u0440\u0430\u043d\u0438 \u0441\u0435\u0431\u0435 \u043d\u0435\u0440\u0432\u044b \u0438 \u0434\u0435\u043d\u044c\u0433\u0438\u00bb", promo: 1180, full: 1880 }
+  };
+  var cls = "standard";
   var areaInput = document.getElementById("area");
   function money(n){ return n.toLocaleString("ru-RU") + " \u20BD"; }
   function recalc(){
     var area = parseInt(areaInput.value,10);
     if (!area || area < 5 || area > 500) area = 52;
     var r = RATES[cls];
-    var works = area*r[0], matFrom = area*r[1], matTo = area*r[2];
+    var works = area*r[0], matFrom = area*r[1];
     var total = works + matFrom;
     var risk = Math.round(total*0.05);
+    var offer = OFFER[cls], price = promoActive ? offer.promo : offer.full;
     document.getElementById("r-works").textContent = "\u043E\u0442 " + money(works);
-    document.getElementById("r-mat").textContent = money(matFrom) + " \u2013 " + money(matTo);
+    document.getElementById("r-mat").textContent = r[2]
+      ? money(matFrom) + " \u2013 " + money(area*r[2])
+      : "\u043E\u0442 " + money(matFrom);
     document.getElementById("r-total").textContent = "\u043E\u0442 " + money(total);
     document.getElementById("r-risk").textContent = money(risk);
     document.getElementById("r-share").textContent =
-      "\u041A\u043E\u043C\u043F\u043B\u0435\u043A\u0442 \u0441\u0442\u043E\u0438\u0442 " + money(PRICE) +
-      " \u2014 \u044D\u0442\u043E " + (PRICE/risk*100).toFixed(1) +
+      offer.name + " \u0441\u0442\u043E\u0438\u0442 " + money(price) +
+      " \u2014 \u044D\u0442\u043E " + (price/risk*100).toFixed(1) +
       "% \u043E\u0442 \u0441\u0443\u043C\u043C\u044B, \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0432\u044B \u0440\u0438\u0441\u043A\u0443\u0435\u0442\u0435.";
+    var buy = document.getElementById("calc-buy");
+    buy.dataset.buy = offer.id;
+    buy.textContent = "\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u0437\u0430 " + money(price);
   }
   document.getElementById("seg").addEventListener("click", function(e){
     var b = e.target.closest("[data-cls]"); if (!b) return;
