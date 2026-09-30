@@ -24,6 +24,8 @@
     "plot":            [1580, 2480],
     "basement":        [1880, 2980],
     "online_support":  [1440, 1440],
-    "service_control": [12440, 12440]
+    "service_control": [12440, 12440],
+    "estimate_review":  [4940, 4940],
+    "situation_review": [9440, 9440]
   }
 }
