@@ -318,7 +318,8 @@
   // скриптом sync-config.sh). Значение ниже — запасное на случай, если
   // файл не загрузился; держать его равным promo_until в конфиге.
   var PROMO_UNTIL = new Date(2026, 11, 31);
-  var promoActive = new Date() < PROMO_UNTIL;
+  // Включительно: весь день PROMO_UNTIL акция ещё идёт, как в боте.
+  var promoActive = new Date() < new Date(PROMO_UNTIL.getTime() + 86400000);
   try {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "config.json?t=" + Date.now(), false);
@@ -328,7 +329,7 @@
       if (cfg.promo_until) {
         var p = cfg.promo_until.split("-");
         PROMO_UNTIL = new Date(+p[0], +p[1] - 1, +p[2]);
-        promoActive = new Date() < PROMO_UNTIL;
+        promoActive = new Date() < new Date(PROMO_UNTIL.getTime() + 86400000);
       }
     }
   } catch (e) {}
