@@ -183,7 +183,7 @@
 
 <!-- ГАЙДЫ -->
 <section class="screen" id="catalog" hidden>
-  <div class="promo" id="promo"><div class="t">Цена запуска</div><div class="d">До <b>16 октября</b>. После — полные цены.</div></div>
+  <div class="promo" id="promo"><div class="t">Цена запуска</div><div class="d">До <b>31 декабря</b>. После — полные цены.</div></div>
 
   <article class="card hero">
     <span class="badge best">Берут чаще всего</span>
@@ -250,7 +250,7 @@
     <button class="btn plain" data-start="soon">Посмотреть и записаться</button>
   </article>
 
-  <p class="note" id="promo-note">Полная цена комплекта равна сумме входящих гайдов, поэтому зачёркнутая цифра подтверждаема. Цена запуска действует 30 дней и не продлевается.</p>
+  <p class="note" id="promo-note">Полная цена комплекта равна сумме входящих гайдов, поэтому зачёркнутая цифра подтверждаема. Цена запуска действует до 31 декабря 2026.</p>
 </section>
 
 <!-- РАСЧЁТ -->
@@ -317,7 +317,7 @@
   // Дата акции — из config.json, общего с ботом (копия кладётся сюда
   // скриптом sync-config.sh). Значение ниже — запасное на случай, если
   // файл не загрузился; держать его равным promo_until в конфиге.
-  var PROMO_UNTIL = new Date(2026, 9, 16);
+  var PROMO_UNTIL = new Date(2026, 11, 31);
   var promoActive = new Date() < PROMO_UNTIL;
   try {
     var xhr = new XMLHttpRequest();
