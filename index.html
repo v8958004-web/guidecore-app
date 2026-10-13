@@ -183,37 +183,38 @@
 
 <!-- ГАЙДЫ -->
 <section class="screen" id="catalog" hidden>
-  <div class="promo" id="promo"><div class="t">Цена запуска</div><div class="d">До <b>31 декабря</b>. После — полные цены.</div></div>
+  <div class="promo" id="cfg-notice" hidden><div class="t">Цены</div><div class="d" id="cfg-notice-text"></div></div>
+  <div class="promo" id="promo"><div class="t">Цена запуска</div><div class="d">До <b id="promo-until">…</b>. После — полные цены.</div></div>
 
   <article class="card hero">
     <span class="badge best">Берут чаще всего</span>
     <h3>Основной + сегмент</h3>
     <p class="tag">Базовый гайд плюс ваш сегмент — эконом или стандарт-комфорт.</p>
-    <div class="prices" data-guide="bundle_econom"><span class="now">1 640 ₽</span><span class="was">3 740 ₽</span><span class="save">−720 ₽</span></div>
+    <div class="prices" data-guide="bundle_econom"><span class="now">…</span><span class="was">…</span><span class="save">…</span></div>
     <p class="spec">45–47 страниц · два PDF · шпаргалки и чек-листы</p>
     <details><summary>Что внутри</summary><ul>
       <li>Бюджет, контроль этапов, договор, 5 конфликтов с бригадой</li>
       <li>Сегментная часть: бренды с ценами под ваш бюджет</li>
       <li>Обе шпаргалки и два чек-листа для печати</li>
     </ul></details>
-    <button class="btn primary" data-buy="bundle_econom">Базовый + Эконом — <span class="p">1 640 ₽</span></button>
-    <button class="btn primary" data-buy="bundle_standard">Базовый + Стандарт-комфорт — <span class="p">1 640 ₽</span></button>
+    <button class="btn primary" data-buy="bundle_econom">Базовый + Эконом — <span class="p">…</span></button>
+    <button class="btn primary" data-buy="bundle_standard">Базовый + Стандарт-комфорт — <span class="p">…</span></button>
   </article>
 
   <article class="card">
     <span class="badge now">Доступно</span>
     <h3>Все три гайда</h3>
     <p class="tag">Базовый, эконом и стандарт вместе — когда бюджет ещё не определён.</p>
-    <div class="prices" data-guide="bundle_all"><span class="now">2 440 ₽</span><span class="was">5 640 ₽</span><span class="save">−1 100 ₽</span></div>
+    <div class="prices" data-guide="bundle_all"><span class="now">…</span><span class="was">…</span><span class="save">…</span></div>
     <p class="spec">69 страниц · три PDF</p>
-    <button class="btn dark" data-buy="bundle_all">Забрать за <span class="p">2 440 ₽</span></button>
+    <button class="btn dark" data-buy="bundle_all">Забрать за <span class="p">…</span></button>
   </article>
 
   <article class="card">
     <span class="badge now">Доступно</span>
     <h3>Сохрани себе нервы и деньги</h3>
     <p class="tag">Базовый гайд: что контролировать на любом ремонте.</p>
-    <div class="prices" data-guide="main"><span class="now">1 180 ₽</span><span class="was">1 880 ₽</span></div>
+    <div class="prices" data-guide="main"><span class="now">…</span><span class="was">…</span></div>
     <p class="spec">23 страницы · 6 разделов · 33 подпункта</p>
     <details><summary>Что внутри</summary><ul>
       <li>Что решить до начала ремонта</li>
@@ -222,25 +223,25 @@
       <li>Договор: неустойка, форс-мажор, приёмка материалов</li>
       <li>5 конфликтов с бригадой по шагам</li>
     </ul></details>
-    <button class="btn plain" data-buy="main">Забрать за <span class="p">1 180 ₽</span></button>
+    <button class="btn plain" data-buy="main">Забрать за <span class="p">…</span></button>
   </article>
 
   <article class="card">
     <span class="badge now">Доступно</span>
     <h3>Эконом-сегмент</h3>
     <p class="tag">Где экономия безопасна, а где вернётся переделкой.</p>
-    <div class="prices" data-guide="econom"><span class="now">1 180 ₽</span><span class="was">1 880 ₽</span></div>
+    <div class="prices" data-guide="econom"><span class="now">…</span><span class="was">…</span></div>
     <p class="spec">22 страницы · 14 разделов · дополнение к базовому</p>
-    <button class="btn plain" data-buy="econom">Забрать за <span class="p">1 180 ₽</span></button>
+    <button class="btn plain" data-buy="econom">Забрать за <span class="p">…</span></button>
   </article>
 
   <article class="card">
     <span class="badge now">Доступно</span>
     <h3>Стандарт-комфорт</h3>
     <p class="tag">Ремонт для комфортной жизни на годы — без переплаты за воздух.</p>
-    <div class="prices" data-guide="standard"><span class="now">1 180 ₽</span><span class="was">1 880 ₽</span></div>
+    <div class="prices" data-guide="standard"><span class="now">…</span><span class="was">…</span></div>
     <p class="spec">24 страницы · 19 разделов · дополнение к базовому</p>
-    <button class="btn plain" data-buy="standard">Забрать за <span class="p">1 180 ₽</span></button>
+    <button class="btn plain" data-buy="standard">Забрать за <span class="p">…</span></button>
   </article>
 
   <article class="card">
@@ -250,7 +251,7 @@
     <button class="btn plain" data-start="soon">Посмотреть и записаться</button>
   </article>
 
-  <p class="note" id="promo-note">Полная цена комплекта равна сумме входящих гайдов, поэтому зачёркнутая цифра подтверждаема. Цена запуска действует до 31 декабря 2026.</p>
+  <p class="note" id="promo-note">Полная цена комплекта равна сумме входящих гайдов, поэтому зачёркнутая цифра подтверждаема. Цена запуска действует до <span id="promo-until-full">…</span>.</p>
 </section>
 
 <!-- РАСЧЁТ -->
@@ -314,50 +315,71 @@
 (function(){
   var tg = window.Telegram && window.Telegram.WebApp;
   var BOT = "VVA_Guide_Bot";
-  // Дата акции — из config.json, общего с ботом (копия кладётся сюда
-  // скриптом sync-config.sh). Значение ниже — запасное на случай, если
-  // файл не загрузился; держать его равным promo_until в конфиге.
-  var PROMO_UNTIL = new Date(2026, 11, 31);
-  // Цены [запуск, полная] — тоже из config.json; ниже запасные значения,
-  // держать равными конфигу. Выгода комплекта считается, не пишется руками.
-  var PRICES = {
-    main: [1180, 1880], econom: [1180, 1880], standard: [1180, 1880],
-    bundle_econom: [1640, 3740], bundle_standard: [1640, 3740], bundle_all: [2440, 5640]
-  };
-  // Включительно: весь день PROMO_UNTIL акция ещё идёт, как в боте.
-  var promoActive = new Date() < new Date(PROMO_UNTIL.getTime() + 86400000);
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "config.json?t=" + Date.now(), false);
-    xhr.send(null);
-    if (xhr.status === 200) {
-      var cfg = JSON.parse(xhr.responseText);
-      if (cfg.promo_until) {
-        var p = cfg.promo_until.split("-");
-        PROMO_UNTIL = new Date(+p[0], +p[1] - 1, +p[2]);
-        promoActive = new Date() < new Date(PROMO_UNTIL.getTime() + 86400000);
-      }
-      if (cfg.prices) PRICES = cfg.prices;
-    }
-  } catch (e) {}
-  function priceOf(id){ return promoActive ? PRICES[id][0] : PRICES[id][1]; }
+  // Дата акции и цены — только из config.json, общего с ботом и сайтом (копию
+  // кладёт sync-config.sh). Запасных значений нет (решение Владимира 12.10, В21):
+  // пока конфиг не загрузился — «…», плашка с уведомлением, загрузка повторяется.
+  var CFG = null, promoActive = false;
+  var onConfig = [];   // что пересчитать после загрузки: калькулятор
+  function money(n){ return n.toLocaleString("ru-RU") + "\u00a0\u20BD"; }  // разряды и ₽ — неразрывными, как в боте и тизере
+  function priceOf(id){ return promoActive ? CFG.prices[id][0] : CFG.prices[id][1]; }
   // Из чего состоит комплект: «выгода» = сумма частей по акции минус цена комплекта,
   // как «по отдельности» в боте (catalog.py). Зачёркнутая цена — полная, из конфига.
   var PARTS = { bundle_econom: ["main","econom"], bundle_standard: ["main","standard"], bundle_all: ["main","econom","standard"] };
-  document.querySelectorAll(".prices[data-guide]").forEach(function(el){
-    var id = el.dataset.guide; if (!PRICES[id]) return;
-    var now = el.querySelector(".now"), was = el.querySelector(".was"), save = el.querySelector(".save");
-    if (now) now.textContent = money(priceOf(id));
-    if (was) was.textContent = money(PRICES[id][1]);
-    if (save && PARTS[id]) {
-      var parts = PARTS[id].reduce(function(s, pid){ return s + PRICES[pid][0]; }, 0);
-      save.textContent = "\u2212" + money(parts - PRICES[id][0]);
+  var MONTHS = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+
+  function applyConfig(cfg){
+    CFG = cfg;
+    var pp = cfg.promo_until.split("-"), until = new Date(+pp[0], +pp[1] - 1, +pp[2]);
+    // Включительно: весь день promo_until акция ещё идёт, как в боте.
+    promoActive = new Date() < new Date(until.getTime() + 86400000);
+    var PRICES = cfg.prices;
+    var d1 = document.getElementById("promo-until"), d2 = document.getElementById("promo-until-full");
+    if (d1) d1.textContent = until.getDate() + " " + MONTHS[until.getMonth()];
+    if (d2) d2.textContent = until.getDate() + " " + MONTHS[until.getMonth()] + " " + until.getFullYear();
+    document.querySelectorAll(".prices[data-guide]").forEach(function(el){
+      var id = el.dataset.guide; if (!PRICES[id]) return;
+      var now = el.querySelector(".now"), was = el.querySelector(".was"), save = el.querySelector(".save");
+      if (now) now.textContent = money(priceOf(id));
+      if (was) was.textContent = money(PRICES[id][1]);
+      if (save && PARTS[id]) {
+        var parts = PARTS[id].reduce(function(s, pid){ return s + PRICES[pid][0]; }, 0);
+        save.textContent = "\u2212" + money(parts - PRICES[id][0]);
+      }
+    });
+    document.querySelectorAll("[data-buy] .p").forEach(function(sp){
+      var id = sp.closest("[data-buy]").dataset.buy;
+      if (PRICES[id]) sp.textContent = money(priceOf(id));
+    });
+    // После акции: убрать плашку, зачёркнутые цены и выгоду.
+    if (!promoActive) {
+      var promo = document.getElementById("promo"); if (promo) promo.hidden = true;
+      var pnote = document.getElementById("promo-note"); if (pnote) pnote.hidden = true;
+      document.querySelectorAll(".prices .was, .prices .save").forEach(function(x){ x.remove(); });
     }
-  });
-  document.querySelectorAll("[data-buy] .p").forEach(function(sp){
-    var id = sp.closest("[data-buy]").dataset.buy;
-    if (PRICES[id]) sp.textContent = money(priceOf(id));
-  });
+    onConfig.forEach(function(f){ f(); });
+  }
+
+  (function load(attempt){
+    var box = document.getElementById("cfg-notice"), txt = document.getElementById("cfg-notice-text");
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "config.json?t=" + Date.now(), true);
+    xhr.timeout = 8000;
+    function fail(){
+      box.hidden = false;
+      txt.textContent = attempt < 3
+        ? "Цены не загрузились. Пробуем ещё раз…"
+        : "Цены не загрузились. Закройте и откройте приложение, а если не поможет — напишите боту.";
+      setTimeout(function(){ load(attempt + 1); }, Math.min(2000 * Math.pow(2, attempt), 30000));
+    }
+    xhr.onload = function(){
+      var cfg = null;
+      try { if (xhr.status === 200) cfg = JSON.parse(xhr.responseText); } catch(e) {}
+      if (cfg && cfg.prices && cfg.promo_until) { box.hidden = true; applyConfig(cfg); }
+      else fail();
+    };
+    xhr.onerror = fail; xhr.ontimeout = fail;
+    xhr.send(null);
+  })(0);
 
   var CHECKS = {
     planning: {
@@ -414,18 +436,6 @@
   }
   if (tg && tg.BackButton) tg.BackButton.onClick(showStages);
 
-  // После акции: убрать плашку, зачёркнутые цены и выгоду, поставить полную цену.
-  if (!promoActive) {
-    var promo = document.getElementById("promo"); if (promo) promo.hidden = true;
-    var pnote = document.getElementById("promo-note"); if (pnote) pnote.hidden = true;
-    document.querySelectorAll(".card").forEach(function(card){
-      var now = card.querySelector(".prices .now"), was = card.querySelector(".prices .was");
-      if (!now || !was) return;
-      now.textContent = was.textContent;
-      card.querySelectorAll(".prices .was, .prices .save").forEach(function(x){ x.remove(); });
-      card.querySelectorAll(".btn .p").forEach(function(x){ x.textContent = was.textContent; });
-    });
-  }
 
   document.addEventListener("click", function(e){
     var el;
@@ -464,7 +474,6 @@
   };
   var cls = "standard";
   var areaInput = document.getElementById("area");
-  function money(n){ return n.toLocaleString("ru-RU") + "\u00a0\u20BD"; }  // разряды и ₽ — неразрывными, как в боте и тизере
   function recalc(){
     var area = parseInt(areaInput.value,10);
     if (!area || area < 5 || area > 500) area = 52;
@@ -472,21 +481,23 @@
     var works = area*r[0], matFrom = area*r[1];
     var total = works + matFrom;
     var risk = Math.round(total*0.05);
-    var offer = OFFER[cls], price = priceOf(offer.id);
+    var offer = OFFER[cls], price = CFG ? priceOf(offer.id) : null;
     document.getElementById("r-works").textContent = "\u043E\u0442 " + money(works);
     document.getElementById("r-mat").textContent = r[2]
       ? money(matFrom) + " \u2013 " + money(area*r[2])
       : "\u043E\u0442 " + money(matFrom);
     document.getElementById("r-total").textContent = "\u043E\u0442 " + money(total);
     document.getElementById("r-risk").textContent = money(risk);
+    var buy = document.getElementById("calc-buy");
+    buy.dataset.buy = offer.id;
+    if (price === null) { document.getElementById("r-share").textContent = ""; buy.textContent = "\u0417\u0430\u0431\u0440\u0430\u0442\u044C"; return; }
     document.getElementById("r-share").textContent =
       offer.name + " \u0441\u0442\u043E\u0438\u0442 " + money(price) +
       " \u2014 \u044D\u0442\u043E " + (price/risk*100).toFixed(1) +
       "% \u043E\u0442 \u0441\u0443\u043C\u043C\u044B, \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0432\u044B \u0440\u0438\u0441\u043A\u0443\u0435\u0442\u0435.";
-    var buy = document.getElementById("calc-buy");
-    buy.dataset.buy = offer.id;
     buy.textContent = "\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u0437\u0430 " + money(price);
   }
+  onConfig.push(recalc);
   document.getElementById("seg").addEventListener("click", function(e){
     var b = e.target.closest("[data-cls]"); if (!b) return;
     haptic(); cls = b.dataset.cls;
