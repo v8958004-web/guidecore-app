@@ -184,6 +184,7 @@
 <!-- ГАЙДЫ -->
 <section class="screen" id="catalog" hidden>
   <div class="promo" id="cfg-notice" hidden><div class="t">Цены</div><div class="d" id="cfg-notice-text"></div></div>
+  <p class="note" id="launch-line" hidden></p>
   <div class="promo" id="promo"><div class="t">Цена запуска</div><div class="d">До <b id="promo-until">…</b>. После — полные цены.</div></div>
 
   <article class="card hero">
@@ -345,6 +346,15 @@
   function applyConfig(cfg){
     CFG = cfg;
     if (cfg.bot_username) BOT = String(cfg.bot_username).replace(/^@/, "");
+    // Обратный отсчёт до старта продаж (В33): ключ sales_start, ставит Bot в день выкладки сайта.
+    if (cfg.sales_start) {
+      var sp = String(cfg.sales_start).split("-"), st = new Date(+sp[0], +sp[1] - 1, +sp[2]);
+      var nw = new Date(), td = new Date(nw.getFullYear(), nw.getMonth(), nw.getDate());
+      var dd = Math.round((st - td) / 86400000), ll = document.getElementById("launch-line");
+      function dn(n){ var m = n % 10, h = n % 100; return (h >= 11 && h <= 14) ? "дней" : m === 1 ? "день" : (m >= 2 && m <= 4) ? "дня" : "дней"; }
+      if (ll && dd > 0) { ll.textContent = "Старт продаж — " + st.getDate() + " " + MONTHS[st.getMonth()] + (dd === 1 ? " (завтра)." : ", осталось " + dd + " " + dn(dd) + "."); ll.hidden = false; }
+      else if (ll && dd === 0) { ll.textContent = "Старт продаж — сегодня."; ll.hidden = false; }
+    }
     var pp = cfg.promo_until.split("-"), until = new Date(+pp[0], +pp[1] - 1, +pp[2]);
     // Включительно: весь день promo_until акция ещё идёт, как в боте.
     promoActive = new Date() < new Date(until.getTime() + 86400000);
