@@ -329,7 +329,7 @@
 <script>
 (function(){
   var tg = window.Telegram && window.Telegram.WebApp;
-  var BOT = "VVA_Guide_Bot";
+  var BOT = "GuideCoreTeam_bot";   // bot_username из config.json; applyConfig переписывает
   // Дата акции и цены — только из config.json, общего с ботом и сайтом (копию
   // кладёт sync-config.sh). Запасных значений нет (решение Владимира 12.10, В21):
   // пока конфиг не загрузился — «…», плашка с уведомлением, загрузка повторяется.
@@ -344,6 +344,7 @@
 
   function applyConfig(cfg){
     CFG = cfg;
+    if (cfg.bot_username) BOT = String(cfg.bot_username).replace(/^@/, "");
     var pp = cfg.promo_until.split("-"), until = new Date(+pp[0], +pp[1] - 1, +pp[2]);
     // Включительно: весь день promo_until акция ещё идёт, как в боте.
     promoActive = new Date() < new Date(until.getTime() + 86400000);
