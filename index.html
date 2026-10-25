@@ -352,7 +352,7 @@
       var nw = new Date(), td = new Date(nw.getFullYear(), nw.getMonth(), nw.getDate());
       var dd = Math.round((st - td) / 86400000), ll = document.getElementById("launch-line");
       function dn(n){ var m = n % 10, h = n % 100; return (h >= 11 && h <= 14) ? "дней" : m === 1 ? "день" : (m >= 2 && m <= 4) ? "дня" : "дней"; }
-      if (ll && dd > 0) { ll.textContent = "Старт продаж — " + st.getDate() + " " + MONTHS[st.getMonth()] + (dd === 1 ? " (завтра)." : ", осталось " + dd + " " + dn(dd) + "."); ll.hidden = false; }
+      if (ll && dd > 0) { ll.textContent = dd === 1 ? "Старт продаж — завтра, " + st.getDate() + " " + MONTHS[st.getMonth()] + "." : "Старт продаж — " + st.getDate() + " " + MONTHS[st.getMonth()] + " " + st.getFullYear() + ", осталось " + dd + " " + dn(dd) + "."; ll.hidden = false; }
       else if (ll && dd === 0) { ll.textContent = "Старт продаж — сегодня."; ll.hidden = false; }
     }
     var pp = cfg.promo_until.split("-"), until = new Date(+pp[0], +pp[1] - 1, +pp[2]);
