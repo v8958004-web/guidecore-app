@@ -486,12 +486,9 @@
   // Работы и материалы — раздел 2.1-2.2 основного гайда, Москва и область,
   // сентябрь 2026. Все ставки в гайде даны как «от», поэтому итог тоже «от».
   // [работы от, черновые материалы от, черновые материалы до] ₽/м²
-  // У премиума верхней границы в гайде нет («от 30 000 ₽/м² и выше») — null.
-  var RATES = {
-    econom:   [12000, 10000, 12000],
-    standard: [25000, 15000, 25000],
-    premium:  [40000, 30000, null]
-  };
+  // Ставки — ключ calc_rates в config.json, общий с ботом и сайтом (Б27): приходят
+  // с конфигом, в разметке чисел нет. У премиума верхней границы нет — null.
+  var RATES = null;
   // Что предлагаем после расчёта — как CALC_GUIDE_BY_CLASS в catalog.py.
   var OFFER = {
     econom:   { id: "bundle_econom",   name: "\u041a\u043e\u043c\u043f\u043b\u0435\u043a\u0442 \u00ab\u0411\u0430\u0437\u043e\u0432\u044b\u0439 + \u042d\u043a\u043e\u043d\u043e\u043c\u00bb" },
@@ -503,6 +500,11 @@
   function recalc(){
     var area = parseInt(areaInput.value,10);
     if (!area || area < 5 || area > 500) area = 52;
+    if (!RATES) {   // ставки ещё не пришли из конфига — цифр нет (В21)
+      ["r-works","r-mat","r-total","r-risk"].forEach(function(id){ document.getElementById(id).textContent = "\u2026"; });
+      document.getElementById("r-share").textContent = "";
+      return;
+    }
     var r = RATES[cls];
     var works = area*r[0], matFrom = area*r[1];
     var total = works + matFrom;
@@ -523,7 +525,7 @@
       "% \u043E\u0442 \u0441\u0443\u043C\u043C\u044B, \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0432\u044B \u0440\u0438\u0441\u043A\u0443\u0435\u0442\u0435.";
     buy.textContent = "\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u0437\u0430 " + money(price);
   }
-  onConfig.push(recalc);
+  onConfig.push(function(){ RATES = CFG.calc_rates || null; recalc(); });
   document.getElementById("seg").addEventListener("click", function(e){
     var b = e.target.closest("[data-cls]"); if (!b) return;
     haptic(); cls = b.dataset.cls;
